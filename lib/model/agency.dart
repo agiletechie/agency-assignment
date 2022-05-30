@@ -1,14 +1,14 @@
 class Agency {
-  final int aid;
-  final String aname, address;
-  final double lat, long;
+  final int? aid;
+  final String? aname, address;
+  final double? lat, long;
 
   Agency({
-    required this.aid,
-    required this.aname,
-    required this.address,
-    required this.lat,
-    required this.long,
+    this.aid,
+    this.aname,
+    this.address,
+    this.lat,
+    this.long,
   });
 
   Map<String, dynamic> toMap() {
@@ -21,7 +21,7 @@ class Agency {
     };
   }
 
-  final List<Agency> _listAgency = [
+  static final List<Agency> _listAgency = [
     Agency(
       aid: 1,
       aname: 'ABC',
@@ -66,7 +66,7 @@ class Agency {
     )
   ];
 
-  List<Agency> get agencies {
+  static List<Agency> get agencies {
     return [..._listAgency];
   }
 }
