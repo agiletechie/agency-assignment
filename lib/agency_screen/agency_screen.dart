@@ -20,9 +20,14 @@ class AgencyScreen extends StatelessWidget {
         builder: (BuildContext context, AsyncSnapshot<List<Agency>?> snapshot) {
           if (snapshot.connectionState == ConnectionState.done) {
             if (snapshot.hasData) {
-              var agencyList = snapshot.data;
+              var agencyList = snapshot.data!;
+              agencyList.sort(
+                (a, b) => a.aname!.toLowerCase().toString().compareTo(
+                      b.aname!.toLowerCase().toString(),
+                    ),
+              );
               return ListView(
-                children: agencyList!
+                children: agencyList
                     .map(
                       (agency) => Card(
                         child: ListTile(
