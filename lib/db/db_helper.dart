@@ -34,7 +34,6 @@ class DBHelper {
     final List<Map<String, dynamic>> dbData;
     if (agencyDB != null) {
       dbData = await agencyDB!.query('LPGAgency');
-      print("Che" + dbData.toString());
       return List.generate(
         dbData.length,
         (index) => Agency(
