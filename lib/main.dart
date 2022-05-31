@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'home_screen/home_screen.dart';
+import 'agency_screen/agency_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,7 +15,11 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.amber,
+        // primaryColorDark: Colors.amber,
+        colorScheme: const ColorScheme.light(
+          primary: Colors.amber,
+          secondary: Colors.amberAccent,
+        ),
       ),
       home: const HomeScreen(),
     );
