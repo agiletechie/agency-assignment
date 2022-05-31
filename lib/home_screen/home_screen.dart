@@ -121,13 +121,12 @@ class _HomeScreenState extends State<HomeScreen> {
                     labelText: 'Enter Address',
                     inputType: TextInputType.text,
                     onSaved: (val) async {
-                      final list = await getAgenciesWithin50(val.toString());
+                      // final list = await getAgenciesWithin50(val.toString());
                       Navigator.push(
                         context,
                         MaterialPageRoute(
                           builder: (ctx) => Agency50KmScreen(
-                            agencyList: list,
-                          ),
+                              onGetAgencies50: getAgenciesWithin50(val!)),
                         ),
                       );
                       print("address" + val.toString());
