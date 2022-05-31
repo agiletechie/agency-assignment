@@ -26,7 +26,7 @@ class _HomeScreenState extends State<HomeScreen> {
   void initDB() async {
     try {
       await DBHelper.createDB();
-      // await DBHelper.insertAgencyData();
+      await DBHelper.insertAgencyData();
       // await DBHelper.fetchAgencyList();
     } catch (e) {
       print(e);
