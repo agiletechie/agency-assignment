@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'home_screen/home_screen.dart';
+import 'package:animated_splash_screen/animated_splash_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -20,7 +21,11 @@ class MyApp extends StatelessWidget {
           secondary: Colors.amberAccent,
         ),
       ),
-      home: const HomeScreen(),
+      home: AnimatedSplashScreen(
+        splash: Image.asset('assets/logo.png'),
+        splashTransition: SplashTransition.rotationTransition,
+        nextScreen: const HomeScreen(),
+      ),
     );
   }
 }
