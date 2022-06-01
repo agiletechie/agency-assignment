@@ -18,7 +18,7 @@ class Agency50KmScreen extends StatelessWidget {
         future: onGetAgencies50,
         builder: (BuildContext context, AsyncSnapshot<List<Agency>?> snapshot) {
           if (snapshot.connectionState == ConnectionState.done) {
-            if (snapshot.hasData) {
+            if (snapshot.hasData && snapshot.data!.isNotEmpty) {
               var agencyList = snapshot.data!;
               agencyList.sort(
                 (a, b) => a.aname!.toLowerCase().toString().compareTo(
@@ -37,6 +37,15 @@ class Agency50KmScreen extends StatelessWidget {
                     )
                     .toList(),
               );
+            } else {
+              //To call it after the build method
+              WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(
+                    content: Text('No Data'),
+                  ),
+                );
+              });
             }
           } else {
             return const Center(
